@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/webcomponent-rocrate-test/static/css/main.e6c13ad2.css",
+    "main.js": "/webcomponent-rocrate-test/static/js/main.cd5b260b.js",
+    "index.html": "/webcomponent-rocrate-test/index.html",
+    "main.e6c13ad2.css.map": "/webcomponent-rocrate-test/static/css/main.e6c13ad2.css.map",
+    "main.cd5b260b.js.map": "/webcomponent-rocrate-test/static/js/main.cd5b260b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.cd5b260b.js"
+  ]
+}
