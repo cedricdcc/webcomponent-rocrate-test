@@ -2,7 +2,7 @@
     "@context": "https://w3id.org/ro/crate/1.1/context",
     "@graph": [
         {
-            "@id": "ro-crate-metadata.json",
+            "@id": "./ro-crate-metadata.json",
             "@type": "CreativeWork",
             "about": {
                 "@id": "./"
@@ -12,18 +12,149 @@
             }
         },
         {
-            "@id": "./",
+            "@id": "./pdf/",
             "@type": "Dataset",
-            "datePublished": "2021-11-25T11:27:08+00:00",
+            "label": "./pdf/",
             "hasPart": [
                 {
-                    "@id": "README.md"
-                } 
+                    "@id": "./pdf/test_pdf.pdf"
+                }
             ]
         },
         {
-            "@id": "README.md",
-            "@type": "File"
+            "@id": "./video/",
+            "@type": "Dataset",
+            "label": "./video/",
+            "hasPart": [
+                {
+                    "@id": "./video/README.md"
+                },
+                {
+                    "@id": "./video/test_AVI.avi"
+                },
+                {
+                    "@id": "./video/test_MKV.mkv"
+                },
+                {
+                    "@id": "./video/test_mp4.mp4"
+                },
+                {
+                    "@id": "./video/test_MPG.mpg"
+                },
+                {
+                    "@id": "./video/test_WEBM.webm"
+                },
+                {
+                    "@id": "./video/test_WMV.wmv"
+                }
+            ]
+        },
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "label": "./",
+            "hasPart": [
+                {
+                    "@id": "./pdf/"
+                },
+                {
+                    "@id": "./video/"
+                },
+                {
+                    "@id": "./README.md"
+                }
+            ]
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-9648-6484",
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "mainEntityOfPage": "https://orcid.org/0000-0002-9648-6484",
+            "givenName": "Marc",
+            "familyName": "Portier",
+            "alternateName": "mpo",
+            "address": {
+                "@id": "_:39dbf476ac284f9797d71a0a0c83fc22"
+            },
+            "affiliation": {
+                "@id": "_:aa121296a172495dbeb123e17ef99985"
+            },
+            "@reverse": {},
+            "url": [
+                "https://www.linkedin.com/in/marcportier/",
+                "https://twitter.com/mportier",
+                "http://purl.org/np/RAUPyY2DISDVAcR2SVZBUz6_RFUqaCphxWmy1REVFeoWo"
+            ],
+            "label": "https://orcid.org/0000-0002-9648-6484"
+        },
+        {
+            "@id": "_:39dbf476ac284f9797d71a0a0c83fc22",
+            "addressCountry": "BE",
+            "@type": "PostalAddress",
+            "label": "_:39dbf476ac284f9797d71a0a0c83fc22"
+        },
+        {
+            "@id": "_:aa121296a172495dbeb123e17ef99985",
+            "@type": "Organization",
+            "name": "Vlaams Instituut voor de Zee",
+            "alternateName": "VMDC, Flemish Marine Data Centre",
+            "identifier": {
+                "@id": "_:0463d574529b43169c97acb6507e74c4"
+            },
+            "label": "_:aa121296a172495dbeb123e17ef99985"
+        },
+        {
+            "@id": "_:0463d574529b43169c97acb6507e74c4",
+            "@type": "PropertyValue",
+            "propertyID": "RINGGOLD",
+            "value": "71343",
+            "label": "_:0463d574529b43169c97acb6507e74c4"
+        },
+        {
+            "@id": "./pdf/test_pdf.pdf",
+            "@type": "File",
+            "label": "./pdf/test_pdf.pdf"
+        },
+        {
+            "@id": "./video/README.md",
+            "@type": "File",
+            "label": "./video/README.md"
+        },
+        {
+            "@id": "./video/test_AVI.avi",
+            "@type": "File",
+            "label": "./video/test_AVI.avi"
+        },
+        {
+            "@id": "./video/test_MKV.mkv",
+            "@type": "File",
+            "label": "./video/test_MKV.mkv"
+        },
+        {
+            "@id": "./video/test_mp4.mp4",
+            "@type": "File",
+            "label": "./video/test_mp4.mp4"
+        },
+        {
+            "@id": "./video/test_MPG.mpg",
+            "@type": "File",
+            "test": "test_here",
+            "label": "./video/test_MPG.mpg"
+        },
+        {
+            "@id": "./video/test_WEBM.webm",
+            "@type": "File",
+            "label": "./video/test_WEBM.webm"
+        },
+        {
+            "@id": "./video/test_WMV.wmv",
+            "@type": "File",
+            "label": "./video/test_WMV.wmv"
+        },
+        {
+            "@id": "./README.md",
+            "@type": "File",
+            "label": "./README.md"
         }
     ]
 }
