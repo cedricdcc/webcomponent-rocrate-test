@@ -63,7 +63,8 @@
                 {
                     "@id": "./README.md"
                 }
-            ]
+            ],
+            "author": "@cedricdcc"
         },
         {
             "@id": "https://orcid.org/0000-0002-9648-6484",
