@@ -7,7 +7,8 @@ export default function RocrateMetadataTable(props: any) {
         //if the data is empty show a message
         loading ? <></> :
         //else loop over the data and show it
-
+        <>
+        <h4>Core RO-Crate Metadata</h4>
         <table>
             <tr>
                 <th>Attribute</th>
@@ -36,6 +37,7 @@ export default function RocrateMetadataTable(props: any) {
                 })
             }
         </table>
+        </>
     )
 }
 

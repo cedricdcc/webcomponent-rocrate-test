@@ -186,10 +186,66 @@ tr.error_row {
   color: var(--accent-color);
 }
 
+.accent-color-shade-1 {
+  color: var(--accent-color-shade-1);
+}
+
+.accent-color-shade-2 {
+  color: var(--accent-color-shade-2);
+}
+
+.accent-color-shade-3 {
+  color: var(--accent-color-shade-3);
+}
+
 .clickable {
   color: var(--accent-color);
 }
 
 .primary-color {
   color: var(--primary-color);
+}
+
+.file_menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file_menu_button_active{
+  background-color: var(--accent-color-shade-2);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  min-width: 31%;
+}
+
+.file_menu_button{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  min-width: 31%;
+}
+
+.file_menu_button:hover{
+  background-color: var(--accent-color);
+}
+
+.file_menu_button:disabled{
+  background-color: var(--secondary-color-shade-1);
+  color: var(--primary-color);
+  cursor: not-allowed;
+}
+
+.file_menu_button:active{
+  background-color: var(--accent-color-shade-1);
+  /*small press down animation*/
+  transform: translateY(2px);
 }

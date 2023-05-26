@@ -10,5 +10,12 @@ export function setHash(hash) {
     window.location.hash = hash;
 }
 
-
-
+export function tryExtractWindowQueryParam(query_params) {
+    //if query_params is empty return content
+    try {
+        return query_params.split("=")[1];
+    }
+    catch {
+        return "metadata";
+    }
+}

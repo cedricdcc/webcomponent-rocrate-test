@@ -4,6 +4,9 @@ import RootContentTable from "../root_content_table/RootContentTable";
 import RocrateMetadataTable from "../rocrate_metadata_table/RocrateMetadataTable";
 import ContentNavigation from "../content_navigation/ContentNavigation";
 import FolderView from "../folder_view/FolderView";
+import FileViewerComponent from "../file_viewer/FileViewer";
+import FileMetadataTable from "../file_metadata_table/FileMetadataTable";
+import FileMenu from "../file_menu/FileMenu";
 
 //function to extract data from the rocrate.json file
 function extractData(rocrate: any) {
@@ -49,7 +52,8 @@ export default function MainContainer(props: any) {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
     const [hash, setHash] = useState("");
-    const [query_params, setQueryParams] = useState({});
+    const [query_params, setQueryParams] = useState("");
+    const [no_q_check, setNoQCheck] = useState(0); 
 
     //console.log(props.container.attributes.rocrate.value);
     //console.log(rocrate);
@@ -64,13 +68,7 @@ export default function MainContainer(props: any) {
         if (window.location.search) {
             setQueryParams(window.location.search);
         }
-    }, []);
-    //on query params change set the query_params state to the new query params
-    useEffect(() => {
-        window.addEventListener("hashchange", () => {
-            setQueryParams(window.location.search);
-        });
-    }, []);
+    }, [no_q_check]);
     //on hash change set the hash state to the new hash
     useEffect(() => {
         window.addEventListener("hashchange", () => {
@@ -96,12 +94,46 @@ export default function MainContainer(props: any) {
     return (
         <div className="container rootcontainer">
             <h1 className="secondary-underline">RO-Crate to HTML Preview Widget</h1>
-            <h4>RO-Crate Metadata</h4>
-            <RocrateMetadataTable data={data} Loading={loading} />
+            <RocrateMetadataTable 
+                data={data} 
+                Loading={loading} 
+            />
             <h4>RO-Crate Content</h4>
-            <RootContentTable rocrate={rocrate} hash={hash} loading={loading} />
-            <ContentNavigation rocrate={rocrate} hash={hash} loading={loading} query_params={query_params} />
-            <FolderView rocrate={rocrate} hash={hash} loading={loading} query_params={query_params} />
+            <RootContentTable 
+                rocrate={rocrate} 
+                hash={hash} 
+                loading={loading} 
+            />
+            <ContentNavigation 
+                rocrate={rocrate} 
+                hash={hash} 
+                loading={loading} 
+                query_params={query_params} 
+            />
+            <FileMenu 
+                rocrate={rocrate} 
+                hash={hash} 
+                loading={loading} 
+                setNoQCheck={setNoQCheck} 
+                no_q_check={no_q_check} 
+                query_params={query_params}
+            />
+            <FolderView 
+                rocrate={rocrate} 
+                hash={hash} 
+                loading={loading} 
+                query_params={query_params} 
+            />
+            <FileMetadataTable 
+                rocrate={rocrate} 
+                hash={hash} 
+                loading={loading} 
+            />
+            <FileViewerComponent 
+                rocrate={rocrate} 
+                hash={hash} 
+                loading={loading} 
+            />
         </div>
     )
 }
