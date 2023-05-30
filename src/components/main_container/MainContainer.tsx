@@ -7,6 +7,7 @@ import FolderView from "../folder_view/FolderView";
 import FileViewerComponent from "../file_viewer/FileViewer";
 import FileMetadataTable from "../file_metadata_table/FileMetadataTable";
 import FileMenu from "../file_menu/FileMenu";
+import axios from "axios";
 
 //function to extract data from the rocrate.json file
 function extractData(rocrate: any) {
@@ -54,6 +55,7 @@ export default function MainContainer(props: any) {
     const [hash, setHash] = useState("");
     const [query_params, setQueryParams] = useState("");
     const [no_q_check, setNoQCheck] = useState(0); 
+    const [contents_file, setContentsFile] = useState("");
 
     //console.log(props.container.attributes.rocrate.value);
     //console.log(rocrate);
@@ -90,6 +92,33 @@ export default function MainContainer(props: any) {
     useEffect(() => {
         setData(extractData(rocrate));
     }, [rocrate]);
+
+    //when hash is updated check if it is a file or folder and if it is a file set the contents_file state to it
+    useEffect(() => {
+        if (hash.includes("#")) {
+            let hash_split = hash.split("#");
+            //search in the @graph array for the file with the @id equal to the hash
+            for (let i in rocrate["@graph"]) {
+                let item = rocrate["@graph"][i];
+                if (item["@id"] == hash_split[1]) {
+                    //check if the file is a folder or a file
+                    if (item["@type"] == "File") {
+                        //perform a axios request to get the file contents
+                        axios.get(item["contentUrl"]).then(response => {
+                            //console.log the type of data recieved
+                            console.log(typeof response.data);
+                            //console.log(response.data);
+                            setContentsFile(response.data);
+                        }
+                        ).catch(error => {
+                            console.log(error);
+                        }
+                        );
+                    }
+                }
+            }
+        }
+    }, [hash]);
 
     return (
         <div className="container rootcontainer">
@@ -133,6 +162,7 @@ export default function MainContainer(props: any) {
                 rocrate={rocrate} 
                 hash={hash} 
                 loading={loading} 
+                contents_file={contents_file}
             />
         </div>
     )
