@@ -17,22 +17,22 @@ export default function ContentNavigation(props: any) {
         hash ? 
         <Breadcrumb>
             {hash_array_length == 2 ?
-                <Breadcrumb.Item active href=""><AiFillHome className="clickable hoverable"/></Breadcrumb.Item>
+                <Breadcrumb.Item active href=""><AiFillHome className="accent-color"/></Breadcrumb.Item>
                 :
                 hash_array.map((item: any, index: number) => {
                     if (index == 0) {
                         return (
-                            <Breadcrumb.Item href={"#./"}><AiFillHome className="hoverable"/></Breadcrumb.Item>
+                            <Breadcrumb.Item href={"#./"}><AiFillHome className="accent-color"/></Breadcrumb.Item>
                         )
                     }
                     if (index == hash_array_length -1 || item.length == 0) {
                         return (
-                            <Breadcrumb.Item active>{item}</Breadcrumb.Item>
+                            <Breadcrumb.Item active className="accent-color">{item}</Breadcrumb.Item>
                         )
                     }
                     else {
                         return (
-                            <Breadcrumb.Item href={"#" + hash_array.slice(0, index + 1).join("/") + "/"}>{item}</Breadcrumb.Item>
+                            <Breadcrumb.Item href={"#" + hash_array.slice(0, index + 1).join("/") + "/"} className="accent-color">{item}</Breadcrumb.Item>
                         )
                     }
                 })

@@ -34,7 +34,7 @@ export default function FolderView(props: any) {
                                                     <ul>
                                                         {item[key].map((value: any) => {
                                                             return (
-                                                                <li className="accent-color">
+                                                                <li className="asecondary-color">
                                                                     <a className="clickable" href={"#"+value["@id"]}>{value["@id"]}</a>
                                                                 </li>
                                                             )

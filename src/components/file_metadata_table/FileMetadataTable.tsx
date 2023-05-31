@@ -37,7 +37,7 @@ export default function FileMetadataTable(props: any) {
                                                     <ul>
                                                         {item[key].map((value: any) => {
                                                             return (
-                                                                <li className="accent-color">
+                                                                <li className="secondary-color">
                                                                     <a className="clickable" href={"#"+value["@id"]}>{value["@id"]}</a>
                                                                 </li>
                                                             )

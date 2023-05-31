@@ -7,6 +7,7 @@ import FolderView from "../folder_view/FolderView";
 import FileViewerComponent from "../file_viewer/FileViewer";
 import FileMetadataTable from "../file_metadata_table/FileMetadataTable";
 import FileMenu from "../file_menu/FileMenu";
+import Footer from "../footer/Footer";
 import axios from "axios";
 
 //function to extract data from the rocrate.json file
@@ -127,7 +128,17 @@ export default function MainContainer(props: any) {
                 data={data} 
                 Loading={loading} 
             />
-            <h4>RO-Crate Content</h4>
+            <div className="flex_row">
+                <h4>RO-Crate Content</h4>
+                <FileMenu 
+                    rocrate={rocrate} 
+                    hash={hash} 
+                    loading={loading} 
+                    setNoQCheck={setNoQCheck} 
+                    no_q_check={no_q_check} 
+                    query_params={query_params}
+                />
+            </div>
             <RootContentTable 
                 rocrate={rocrate} 
                 hash={hash} 
@@ -138,14 +149,6 @@ export default function MainContainer(props: any) {
                 hash={hash} 
                 loading={loading} 
                 query_params={query_params} 
-            />
-            <FileMenu 
-                rocrate={rocrate} 
-                hash={hash} 
-                loading={loading} 
-                setNoQCheck={setNoQCheck} 
-                no_q_check={no_q_check} 
-                query_params={query_params}
             />
             <FolderView 
                 rocrate={rocrate} 
@@ -164,6 +167,7 @@ export default function MainContainer(props: any) {
                 loading={loading} 
                 contents_file={contents_file}
             />
+            <Footer />
         </div>
     )
 }

@@ -28,7 +28,7 @@ export default function RootContentTable(props: any) {
                         if (item["@id"] == "./" || (item["@id"].includes("http") && item["@type"] == "File")) {
                             return (
                                 <tr>
-                                    <td className="clickable primary-color" onClick={() => setHashState(item["@id"])}>{item["@id"]}</td>
+                                    <td className="clickable-secondary" onClick={() => setHashState(item["@id"])}>{item["@id"]}</td>
                                     <td>{item["@type"]}</td>
                                 </tr>
                             )

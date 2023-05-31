@@ -208,9 +208,18 @@
             ]
         },
         {
+            "@id": "https://orcid.org/0000-0002-9648-6484",
+            "name": "Marc Portier"
+        },
+        {
             "@id": "./",
             "@type": "Dataset",
             "label": "./",
+            "author": "mpo",
+            "author2b": {
+
+                "@id": "https://orcid.org/0000-0002-9648-6484"
+            },
             "hasPart": [
                 {
                     "@id": "./audio/"
